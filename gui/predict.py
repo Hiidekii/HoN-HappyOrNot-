@@ -33,8 +33,8 @@ def get_prediction(imagen):
         print(imagen.shape)
         imagen_g =imagen.reshape(1,48,48)
         print(imagen_g.shape)
-        cv2.imwrite('pruebas/waka.jpg', imagen)
+        #cv2.imwrite('pruebas/waka.jpg', imagen)
         prediction = new_model.predict(imagen_g)
         return cats[prediction.argmax()]
-    except:
-        print("error")
+    except Exception as error:
+        print(error)
