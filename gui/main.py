@@ -47,7 +47,7 @@ class Worker1(QThread):
                 self.imagen  = FlippedImage
                 print(type(FlippedImage))
                 ConvertToQtFormat = QImage(FlippedImage.data, FlippedImage.shape[1], FlippedImage.shape[0], QImage.Format_RGB888)
-                
+                Root.p_label.setText()
                 Pic = ConvertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
                 self.ImageUpdate.emit(Pic)
     def stop(self):
