@@ -31,6 +31,12 @@ class HappyOrNot(QWidget,Ui_mainWindow):
         self.tabWidget.setCurrentWidget(self.tabWidget.findChild(QWidget,"acerca_de"))
         self.load_cam_button.clicked.connect(self.cam_view)
         self.load_video_button.clicked.connect(self.video_view)
+        self.counters = {}
+        self.counters_vid={}
+
+
+
+    def cam_view(self):
         self.counters ={
             'anger': {'val':0, 'lcd':self.counter_anger},
             'disgust': {'val':0, 'lcd':self.counter_disgust}, 
@@ -39,14 +45,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
             'neutral': {'val':0, 'lcd':self.counter_neutral}, 
             'sadness': {'val':0, 'lcd':self.counter_sad}, 
             'surprise': {'val':0, 'lcd':self.counter_surp}
-        }
-        for el in self.counters:
-            self.counters[el]['val'] = 0
-
-
-
-    def cam_view(self):
-              
+        }      
         self.stop_cam_button.clicked.connect(self.CancelFeed)
 
         self.Worker1 = Worker1()
@@ -62,6 +61,16 @@ class HappyOrNot(QWidget,Ui_mainWindow):
 
 
     def video_view(self):
+        self.counters_vid ={
+            'anger': {'val':0, 'lcd':self.counter_anger_vid},
+            'disgust': {'val':0, 'lcd':self.counter_disgust_vid}, 
+            'fear': {'val':0, 'lcd':self.counter_fear_vid}, 
+            'happiness': {'val':0, 'lcd':self.counter_happy_vid}, 
+            'neutral': {'val':0, 'lcd':self.counter_neutral_vid}, 
+            'sadness': {'val':0, 'lcd':self.counter_sad_vid}, 
+            'surprise': {'val':0, 'lcd':self.counter_surp_vid}
+        }
+
         if self.video_path.toPlainText() != "":      
             self.stop_video_button.clicked.connect(self.CancelFeed_video)
 
@@ -105,9 +114,9 @@ class Worker_Video(QThread):
                         self.faces_gray.append(careto)
                         welcome.emotions_video_reg.append(careto["pred"])
                         print(careto["pred"])
-                        # print(welcome.counters[careto["pred"]]['val'])
-                        # welcome.counters[careto["pred"]]['val'] += 1
-                        # welcome.counters[careto["pred"]]['lcd'].display(welcome.counters[careto["pred"]]['val'])
+                        print(welcome.counters_vid[careto["pred"]]['val'])
+                        welcome.counters_vid[careto["pred"]]['val'] += 1
+                        welcome.counters_vid[careto["pred"]]['lcd'].display(welcome.counters_vid[careto["pred"]]['val'])
                     
                     i= 0
             else:
