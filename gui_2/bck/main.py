@@ -157,7 +157,7 @@ class Worker1(QThread):
             if ret:
                 Image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                faces = face_cascade.detectMultiScale(Image, 1.3, 5)
+                faces = face_cascade.detectMultiScale(gray, 1.3, 5)
                 for (x,y,w,h) in faces:
                     cv2.rectangle(Image,(x,y),(x+w,y+h),(255,0,0),2)                 
                 # FlippedImage = cv2.flip(Image, 1)
@@ -166,9 +166,9 @@ class Worker1(QThread):
                         self.faces_gray = []
                         for (x,y,w,h) in faces:
                             careto = {}
-                            careto["gray"] = Image[y:y+h, x:x+w]
+                            careto["gray"] = gray[y:y+h, x:x+w]
                             careto["pos"] = (x,y,w,h)
-                            careto["pred"] = get_prediction(Image[y:y+h, x:x+w])
+                            careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
                             self.faces_gray.append(careto)
                             welcome.emotions_cam_reg.append(careto["pred"])
                             print(careto["pred"])
