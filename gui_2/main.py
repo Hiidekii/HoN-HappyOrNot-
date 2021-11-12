@@ -2,6 +2,8 @@
 # from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout,QPushButton,QTextEdit
 # from PyQt6.QtGui import QPixmap, QImage 
 # from PyQt6.QtCore import QThread, pyqtSignal
+# https://sensa.co/emoji/
+
 
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
@@ -11,6 +13,7 @@ import sys
 import requests
 import numpy as np
 import cv2
+from vidgear.gears import CamGear
 from predict import get_prediction
 # from html2text import html2text
 
@@ -27,6 +30,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
         self.images_tab.activateWindow()
         self.tabWidget.setCurrentWidget(self.tabWidget.findChild(QWidget,"acerca_de"))
         self.load_cam_button.clicked.connect(self.cam_view)
+        self.load_video_button.clicked.connect(self.video_view)
         self.counters ={
             'anger': {'val':0, 'lcd':self.counter_anger},
             'disgust': {'val':0, 'lcd':self.counter_disgust}, 
@@ -54,6 +58,80 @@ class HappyOrNot(QWidget,Ui_mainWindow):
 
     def CancelFeed(self):
         self.Worker1.stop()
+
+
+
+    def video_view(self):
+        if self.video_path.toPlainText() != "":      
+            self.stop_video_button.clicked.connect(self.CancelFeed_video)
+
+            self.Worker_Video = Worker_Video()
+            self.Worker_Video.start()
+            self.Worker_Video.ImageUpdate.connect(self.ImageUpdateSlot_video)
+        else:
+            self.video_path.append("Ningun Video")
+    def ImageUpdateSlot_video(self, Image):
+        self.video_thread.setPixmap(QPixmap.fromImage(Image))
+
+    def CancelFeed_video(self):
+        self.Worker_Video.stop()
+
+
+class Worker_Video(QThread):
+    ImageUpdate = pyqtSignal(QImage)
+    def run(self):
+        self.stream = CamGear(source=welcome.video_path.toPlainText(), stream_mode = True, logging=False).start()
+        self.ThreadActive = True
+        # Capture = cv2.VideoCapture(0)
+        i = 0
+        x,y,w,h = 0,0,0,0
+        self.faces_gray = []
+        while self.ThreadActive:
+            frame = self.stream.read()
+            Image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+            for (x,y,w,h) in faces:
+                cv2.rectangle(Image,(x,y),(x+w,y+h),(255,0,0),2)                 
+            # FlippedImage = cv2.flip(Image, 1)
+            if i == 30:
+                if len(faces)>0:
+                    self.faces_gray = []
+                    for (x,y,w,h) in faces:
+                        careto = {}
+                        careto["gray"] = gray[y:y+h, x:x+w]
+                        careto["pos"] = (x,y,w,h)
+                        careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
+                        self.faces_gray.append(careto)
+                        welcome.emotions_video_reg.append(careto["pred"])
+                        print(careto["pred"])
+                        # print(welcome.counters[careto["pred"]]['val'])
+                        # welcome.counters[careto["pred"]]['val'] += 1
+                        # welcome.counters[careto["pred"]]['lcd'].display(welcome.counters[careto["pred"]]['val'])
+                    
+                    i= 0
+            else:
+                i+=1
+            for cara in self.faces_gray:
+                x,y,w,h = cara["pos"]
+                cv2.putText(Image,
+                            cara["pred"], 
+                            (x,y), 
+                            font, 
+                            fontScale,
+                            fontColor,
+                            lineType)
+
+
+            ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
+            Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
+            self.ImageUpdate.emit(Pic)
+        self.stream.stop()
+        cv2.destroyAllWindows()
+        
+    def stop(self):
+        self.ThreadActive = False
+        self.quit()
 
 
 
@@ -112,6 +190,8 @@ class Worker1(QThread):
     def stop(self):
         self.ThreadActive = False
         self.quit()
+
+
 
 
 

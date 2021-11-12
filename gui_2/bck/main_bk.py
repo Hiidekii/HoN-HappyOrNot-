@@ -2,6 +2,8 @@
 # from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout,QPushButton,QTextEdit
 # from PyQt6.QtGui import QPixmap, QImage 
 # from PyQt6.QtCore import QThread, pyqtSignal
+# https://sensa.co/emoji/
+
 
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
@@ -28,15 +30,16 @@ class HappyOrNot(QWidget,Ui_mainWindow):
         self.tabWidget.setCurrentWidget(self.tabWidget.findChild(QWidget,"acerca_de"))
         self.load_cam_button.clicked.connect(self.cam_view)
         self.counters ={
-            'anger':,
-             'disgust':, 
-             'fear':, 
-             'happiness':, 
-             'neutral':, 
-             'sadness':, 
-             'surprise'
+            'anger': {'val':0, 'lcd':self.counter_anger},
+            'disgust': {'val':0, 'lcd':self.counter_disgust}, 
+            'fear': {'val':0, 'lcd':self.counter_fear}, 
+            'happiness': {'val':0, 'lcd':self.counter_happy}, 
+            'neutral': {'val':0, 'lcd':self.counter_neutral}, 
+            'sadness': {'val':0, 'lcd':self.counter_sad}, 
+            'surprise': {'val':0, 'lcd':self.counter_surp}
         }
-
+        for el in self.counters:
+            self.counters[el]['val'] = 0
 
 
 
@@ -83,6 +86,10 @@ class Worker1(QThread):
                             careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
                             self.faces_gray.append(careto)
                             welcome.emotions_cam_reg.append(careto["pred"])
+                            print(careto["pred"])
+                            print(welcome.counters[careto["pred"]]['val'])
+                            welcome.counters[careto["pred"]]['val'] += 1
+                            welcome.counters[careto["pred"]]['lcd'].display(welcome.counters[careto["pred"]]['val'])
                         
                         i= 0
                 else:

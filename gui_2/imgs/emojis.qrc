@@ -1,0 +1,353 @@
+<RCC>
+  <qresource prefix="imgs/">
+    <file>Airplane.png</file>
+    <file>Angry face.png</file>
+    <file>Anguished face.png</file>
+    <file>Anxious face with sweat.png</file>
+    <file>Astonished face.png</file>
+    <file>Avocado.png</file>
+    <file>Backhand index pointing down.png</file>
+    <file>Backhand index pointing down skin 1.png</file>
+    <file>Backhand index pointing down skin 2.png</file>
+    <file>Backhand index pointing down skin 3.png</file>
+    <file>Backhand index pointing down skin 4.png</file>
+    <file>Backhand index pointing down skin 5.png</file>
+    <file>Backhand index pointing left.png</file>
+    <file>Backhand index pointing left skin 1.png</file>
+    <file>Backhand index pointing left skin 2.png</file>
+    <file>Backhand index pointing left skin 3.png</file>
+    <file>Backhand index pointing left skin 4.png</file>
+    <file>Backhand index pointing left skin 5.png</file>
+    <file>Backhand index pointing right.png</file>
+    <file>Backhand index pointing right skin 1.png</file>
+    <file>Backhand index pointing right skin 2.png</file>
+    <file>Backhand index pointing right skin 3.png</file>
+    <file>Backhand index pointing right skin 4.png</file>
+    <file>Backhand index pointing right skin 5.png</file>
+    <file>Backhand index pointing up.png</file>
+    <file>Backhand index pointing up skin 1.png</file>
+    <file>Backhand index pointing up skin 2.png</file>
+    <file>Backhand index pointing up skin 3.png</file>
+    <file>Backhand index pointing up skin 4.png</file>
+    <file>Backhand index pointing up skin 5.png</file>
+    <file>Baltasar.png</file>
+    <file>Banana.png</file>
+    <file>Beach.png</file>
+    <file>Beach with umbrella.png</file>
+    <file>Beaming face with smiling eyes.png</file>
+    <file>Bell.png</file>
+    <file>Bicycle.png</file>
+    <file>Broken heart.png</file>
+    <file>Bubbles.png</file>
+    <file>Calendar.png</file>
+    <file>Call me hand.png</file>
+    <file>Call me hand skin 1.png</file>
+    <file>Call me hand skin 2.png</file>
+    <file>Call me hand skin 4.png</file>
+    <file>Call me hand skin 5.png</file>
+    <file>Camera.png</file>
+    <file>Cat.png</file>
+    <file>Check mark.png</file>
+    <file>Clapping hands.png</file>
+    <file>Clapping hands skin 1.png</file>
+    <file>Clapping hands skin 2.png</file>
+    <file>Clapping hands skin 3.png</file>
+    <file>Clapping hands skin 4.png</file>
+    <file>Clapping hands skin 5.png</file>
+    <file>Clock.png</file>
+    <file>Clown face.png</file>
+    <file>Cold face.png</file>
+    <file>Compass.png</file>
+    <file>Confounded face.png</file>
+    <file>Cool.png</file>
+    <file>Cowboy hat face.png</file>
+    <file>Crossed fingers.png</file>
+    <file>Crossed fingers skin 1.png</file>
+    <file>Crossed fingers skin 2.png</file>
+    <file>Crossed fingers skin 3.png</file>
+    <file>Crossed fingers skin 4.png</file>
+    <file>Crossed fingers skin 5.png</file>
+    <file>Crying face.png</file>
+    <file>Crystal ball.png</file>
+    <file>Dissapointed face.png</file>
+    <file>Dizzy face.png</file>
+    <file>Dog.png</file>
+    <file>Downcast face with sweat.png</file>
+    <file>Drooling face.png</file>
+    <file>Eggplant.png</file>
+    <file>Envelope.png</file>
+    <file>Exploding head.png</file>
+    <file>Expressioless face.png</file>
+    <file>Face blowing a kiss.png</file>
+    <file>Face savoring food.png</file>
+    <file>Face screaming in fear.png</file>
+    <file>Face with hand over mouth.png</file>
+    <file>Face with head-bandage.png</file>
+    <file>Face with medical mask.png</file>
+    <file>Face with monocle.png</file>
+    <file>Face with open mouth.png</file>
+    <file>Face with raised eyebrow.png</file>
+    <file>Face with rolling eyes.png</file>
+    <file>Face with steam from nose.png</file>
+    <file>Face with symbols on mouth.png</file>
+    <file>Face with tears of joy.png</file>
+    <file>Face with thermometer.png</file>
+    <file>Face with tongue.png</file>
+    <file>Face without mouth.png</file>
+    <file>Fearful face.png</file>
+    <file>Fire.png</file>
+    <file>Flushed face.png</file>
+    <file>Folded hands.png</file>
+    <file>Folded hands skin 1.png</file>
+    <file>Folded hands skin 2.png</file>
+    <file>Folded hands skin 3.png</file>
+    <file>Folded hands skin 4.png</file>
+    <file>Folded hands skin 5.png</file>
+    <file>Free.png</file>
+    <file>Frowning face.png</file>
+    <file>Frowning face with open mouth.png</file>
+    <file>Gaspar.png</file>
+    <file>Gemstone.png</file>
+    <file>Glasses.png</file>
+    <file>Green apple.png</file>
+    <file>Grimacing face.png</file>
+    <file>Grinning face.png</file>
+    <file>Grinning face-1.png</file>
+    <file>Grinning face with big eyes.png</file>
+    <file>Grinning face with sweat.png</file>
+    <file>Grinning squinting face.png</file>
+    <file>Group.png</file>
+    <file>Hamburger.png</file>
+    <file>Hand with fingers splayed.png</file>
+    <file>Hand with fingers splayed skin 1.png</file>
+    <file>Hand with fingers splayed skin 2.png</file>
+    <file>Hand with fingers splayed skin 3.png</file>
+    <file>Hand with fingers splayed skin 4.png</file>
+    <file>Hand with fingers splayed skin 5.png</file>
+    <file>Handshake.png</file>
+    <file>Handshake skin 1.png</file>
+    <file>Handshake skin 2.png</file>
+    <file>Handshake skin 3.png</file>
+    <file>Handshake skin 4.png</file>
+    <file>Handshake skin 5.png</file>
+    <file>Heart.png</file>
+    <file>High voltage.png</file>
+    <file>Hot face.png</file>
+    <file>House.png</file>
+    <file>Hugging face.png</file>
+    <file>Hushed face.png</file>
+    <file>Index pointing up.png</file>
+    <file>Index pointing up skin 1.png</file>
+    <file>Index pointing up skin 2.png</file>
+    <file>Index pointing up skin 3.png</file>
+    <file>Index pointing up skin 4.png</file>
+    <file>Index pointing up skin 5.png</file>
+    <file>Joker.png</file>
+    <file>Kissing face.png</file>
+    <file>Kissing face with closed eyes.png</file>
+    <file>Kissing face with smiling eyes.png</file>
+    <file>Kiwi.png</file>
+    <file>Landmark.png</file>
+    <file>Left facing fist.png</file>
+    <file>Left facing fist skin 1.png</file>
+    <file>Left facing fist skin 2.png</file>
+    <file>Left facing fist skin 3.png</file>
+    <file>Left facing fist skin 4.png</file>
+    <file>Left facing fist skin 5.png</file>
+    <file>Lion.png</file>
+    <file>Loudly crying face.png</file>
+    <file>Love you gesture.png</file>
+    <file>Love you gesture skin 1.png</file>
+    <file>Love you gesture skin 2.png</file>
+    <file>Love you gesture skin 3.png</file>
+    <file>Love you gesture skin 4.png</file>
+    <file>Love you gesture skin 5.png</file>
+    <file>Lying face.png</file>
+    <file>Mailbox.png</file>
+    <file>Melchor.png</file>
+    <file>Middle finger.png</file>
+    <file>Middle finger skin 1.png</file>
+    <file>Middle finger skin 2.png</file>
+    <file>Middle finger skin 3.png</file>
+    <file>Middle finger skin 4.png</file>
+    <file>Middle finger skin 5.png</file>
+    <file>Money mouth face $.png</file>
+    <file>Money mouth face £.png</file>
+    <file>Money mouth face ¥.png</file>
+    <file>Money mouth face €.png</file>
+    <file>Money mouth face ₽.png</file>
+    <file>Money mouth face bitcoin.png</file>
+    <file>Monkey.png</file>
+    <file>Nauseated face.png</file>
+    <file>Nerd face.png</file>
+    <file>Neutral face.png</file>
+    <file>Ok.png</file>
+    <file>Ok hand.png</file>
+    <file>Ok hand skin 1.png</file>
+    <file>Ok hand skin 2.png</file>
+    <file>Ok hand skin 3.png</file>
+    <file>Ok hand skin 4.png</file>
+    <file>Ok hand skin 5.png</file>
+    <file>Oncoming fist.png</file>
+    <file>Oncoming fist skin 1.png</file>
+    <file>Oncoming fist skin 2.png</file>
+    <file>Oncoming fist skin 3.png</file>
+    <file>Oncoming fist skin 4.png</file>
+    <file>Oncoming fist skin 5.png</file>
+    <file>Open hands.png</file>
+    <file>Open hands skin 1.png</file>
+    <file>Open hands skin 2.png</file>
+    <file>Open hands skin 3.png</file>
+    <file>Open hands skin 4.png</file>
+    <file>Open hands skin 5.png</file>
+    <file>Palm.png</file>
+    <file>Palms up together.png</file>
+    <file>Palms up together skin 1.png</file>
+    <file>Palms up together skin 2.png</file>
+    <file>Palms up together skin 3.png</file>
+    <file>Palms up together skin 4.png</file>
+    <file>Palms up together skin 5.png</file>
+    <file>Panda.png</file>
+    <file>Party popper.png</file>
+    <file>Partying face.png</file>
+    <file>Peach.png</file>
+    <file>Pencil.png</file>
+    <file>Pensive face.png</file>
+    <file>Pile of poo.png</file>
+    <file>Pinch hand.png</file>
+    <file>Pinch hand skin 1.png</file>
+    <file>Pinch hand skin 2.png</file>
+    <file>Pinch hand skin 3.png</file>
+    <file>Pinch hand skin 4.png</file>
+    <file>Pinch hand skin 5.png</file>
+    <file>Pinched fingers.png</file>
+    <file>Pinched fingers skin 1.png</file>
+    <file>Pinched fingers skin 2.png</file>
+    <file>Pinched fingers skin 3.png</file>
+    <file>Pinched fingers skin 4.png</file>
+    <file>Pinched fingers skin 5.png</file>
+    <file>Pizza.png</file>
+    <file>Pleading face.png</file>
+    <file>Pouting face.png</file>
+    <file>Rainbow.png</file>
+    <file>Raised back of hand.png</file>
+    <file>Raised back of hand skin 1.png</file>
+    <file>Raised back of hand skin 2.png</file>
+    <file>Raised back of hand skin 3.png</file>
+    <file>Raised back of hand skin 4.png</file>
+    <file>Raised back of hand skin 5.png</file>
+    <file>Raised fist.png</file>
+    <file>Raised fist skin 1.png</file>
+    <file>Raised fist skin 2.png</file>
+    <file>Raised fist skin 3.png</file>
+    <file>Raised fist skin 4.png</file>
+    <file>Raised fist skin 5.png</file>
+    <file>Raised hand.png</file>
+    <file>Raised hand skin 1.png</file>
+    <file>Raised hand skin 2.png</file>
+    <file>Raised hand skin 3.png</file>
+    <file>Raised hand skin 4.png</file>
+    <file>Raised hand skin 5.png</file>
+    <file>Raising hands.png</file>
+    <file>Raising hands skin 1.png</file>
+    <file>Raising hands skin 2.png</file>
+    <file>Raising hands skin 3.png</file>
+    <file>Raising hands skin 4.png</file>
+    <file>Raising hands skin 5.png</file>
+    <file>Recycling symbol.png</file>
+    <file>Red apple.png</file>
+    <file>Relieved face.png</file>
+    <file>Right facing fist.png</file>
+    <file>Right facing fist skin 1.png</file>
+    <file>Right facing fist skin 2.png</file>
+    <file>Right facing fist skin 3.png</file>
+    <file>Right facing fist skin 4.png</file>
+    <file>Right facing fist skin 5.png</file>
+    <file>Robot.png</file>
+    <file>Rocket.png</file>
+    <file>Rolling on the floor laughing.png</file>
+    <file>Round pushpin.png</file>
+    <file>Sad but relieved face.png</file>
+    <file>Santa Claus.png</file>
+    <file>Scrunched face.png</file>
+    <file>Shushing face.png</file>
+    <file>Sign of the horns.png</file>
+    <file>Sign of the horns skin 1.png</file>
+    <file>Sign of the horns skin 2.png</file>
+    <file>Sign of the horns skin 3.png</file>
+    <file>Sign of the horns skin 4.png</file>
+    <file>Sign of the horns skin 5.png</file>
+    <file>Sleep face.png</file>
+    <file>Sleepy face.png</file>
+    <file>Slightly frowning face.png</file>
+    <file>Slightly smiling face.png</file>
+    <file>Smiling face.png</file>
+    <file>Smiling face with halo.png</file>
+    <file>Smiling face with heart-eyes.png</file>
+    <file>Smiling face with hearts.png</file>
+    <file>Smiling face with smiling eyes.png</file>
+    <file>Smiling face with sunglasses.png</file>
+    <file>Smirking face.png</file>
+    <file>Sneezing face.png</file>
+    <file>Sparkles.png</file>
+    <file>Squinting face with tongue.png</file>
+    <file>Star.png</file>
+    <file>Star-struck.png</file>
+    <file>Sweat droplets.png</file>
+    <file>Thinking face.png</file>
+    <file>Thumbs down.png</file>
+    <file>Thumbs down skin 1.png</file>
+    <file>Thumbs down skin 2.png</file>
+    <file>Thumbs down skin 3.png</file>
+    <file>Thumbs down skin 4.png</file>
+    <file>Thumbs down skin 5.png</file>
+    <file>Thumbs up.png</file>
+    <file>Thumbs up skin 1.png</file>
+    <file>Thumbs up skin 2.png</file>
+    <file>Thumbs up skin 3.png</file>
+    <file>Thumbs up skin 4.png</file>
+    <file>Thumbs up skin 5.png</file>
+    <file>Tired face.png</file>
+    <file>Umbrella with rain drops.png</file>
+    <file>Unamused face.png</file>
+    <file>Unicorn.png</file>
+    <file>Upside-down face.png</file>
+    <file>Victory hand.png</file>
+    <file>Victory hand skin 1.png</file>
+    <file>Victory hand skin 2.png</file>
+    <file>Victory hand skin 3.png</file>
+    <file>Victory hand skin 4.png</file>
+    <file>Victory hand skin 5.png</file>
+    <file>Vomiting face.png</file>
+    <file>Vulcan salute.png</file>
+    <file>Vulcan salute skin 1.png</file>
+    <file>Vulcan salute skin 2.png</file>
+    <file>Vulcan salute skin 3.png</file>
+    <file>Vulcan salute skin 4.png</file>
+    <file>Vulcan salute skin 5.png</file>
+    <file>Waving hand.png</file>
+    <file>Waving hand skin 1.png</file>
+    <file>Waving hand skin 2.png</file>
+    <file>Waving hand skin 3.png</file>
+    <file>Waving hand skin 4.png</file>
+    <file>Waving hand skin 5.png</file>
+    <file>Weary face.png</file>
+    <file>Weather.png</file>
+    <file>Winking face.png</file>
+    <file>Winking face with tongue.png</file>
+    <file>Woozy face.png</file>
+    <file>Worried face.png</file>
+    <file>Worried face-1.png</file>
+    <file>Writing hand.png</file>
+    <file>Writing hand skin 1.png</file>
+    <file>Writing hand skin 2.png</file>
+    <file>Writing hand skin 3.png</file>
+    <file>Writing hand skin 4.png</file>
+    <file>Writing hand skin 5.png</file>
+    <file>Xmas ball.png</file>
+    <file>Xmas tree.png</file>
+    <file>Yawning face.png</file>
+    <file>Zany face.png</file>
+    <file>Zipper-mouth face.png</file>
+  </qresource>
+</RCC>
