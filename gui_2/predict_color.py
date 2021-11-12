@@ -7,12 +7,12 @@ import cv2
 import os
 face_cascade = cv2.CascadeClassifier('assets/haarcascade_frontalface_default.xml')
 
-HEIGHT, WIDTH = 48,48
+HEIGHT, WIDTH = 75,75
 dim=(HEIGHT, WIDTH)
 
 cats = ['anger', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
 
-new_model = load_model("complet_faces_best_model20211110.h5")
+new_model = load_model("faces_iception_2_best_model20211112.h5")
 new_model.summary()
 
 def get_face(img):
@@ -31,8 +31,8 @@ def get_prediction(imagen):
         #imagen = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
         imagen = cv2.resize(imagen, dim)
         print(imagen.shape)
-        imagen_g =imagen.reshape(1,HEIGHT, WIDTH) #IMPRESCINDIBLE PARA MODELO GRAY
-        #imagen_g =imagen.reshape(1,HEIGHT, WIDTH,3)
+        #imagen_g =imagen.reshape(1,48,48) #IMPRESCINDIBLE PARA MODELO GRAY
+        imagen_g =imagen.reshape(1,75,75,3)
         print(imagen_g.shape)
         #cv2.imwrite('pruebas/waka.jpg', imagen)
         prediction = new_model.predict(imagen_g)
