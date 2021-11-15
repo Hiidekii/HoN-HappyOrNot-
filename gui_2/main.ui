@@ -332,7 +332,7 @@ background-color: #FFFFFF
     <widget class="QFrame" name="contadores_vid">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>500</y>
        <width>781</width>
        <height>111</height>
@@ -357,7 +357,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Slightly smiling face.png</pixmap>
+       <pixmap resource="emojis.qrc">:/imgs/imgs/Smiling face with smiling eyes.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -379,7 +379,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Astonished face.png</pixmap>
+       <pixmap resource="emojis.qrc">:/imgs/imgs/Astonished face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -398,7 +398,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Frowning face.png</pixmap>
+       <pixmap resource="emojis.qrc">:/imgs/imgs/Frowning face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -417,7 +417,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Angry face.png</pixmap>
+       <pixmap resource="emojis.qrc">:/imgs/imgs/Angry face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -492,7 +492,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Neutral face.png</pixmap>
+       <pixmap resource="emojis.qrc">:/imgs/imgs/Neutral face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -654,7 +654,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Fearful face.png</pixmap>
+       <pixmap resource="emojis.qrc">:/imgs/imgs/Fearful face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -673,7 +673,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Pensive face.png</pixmap>
+       <pixmap resource="emojis.qrc">:/imgs/imgs/Pensive face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -824,7 +824,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Slightly smiling face.png</pixmap>
+       <pixmap>:/imgs/Slightly smiling face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -846,7 +846,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Astonished face.png</pixmap>
+       <pixmap>:/imgs/Astonished face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -865,7 +865,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Frowning face.png</pixmap>
+       <pixmap>:/imgs/Frowning face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -884,7 +884,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Angry face.png</pixmap>
+       <pixmap>:/imgs/Angry face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -959,7 +959,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Neutral face.png</pixmap>
+       <pixmap>:/imgs/Neutral face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -1121,7 +1121,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Fearful face.png</pixmap>
+       <pixmap>:/imgs/Fearful face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -1140,7 +1140,7 @@ background-color: #FFFFFF
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs/emojis.qrc">:/imgs/Pensive face.png</pixmap>
+       <pixmap>:/imgs/Pensive face.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -1178,7 +1178,7 @@ background-color: #FFFFFF
   </widget>
  </widget>
  <resources>
-  <include location="imgs/emojis.qrc"/>
+  <include location="emojis.qrc"/>
  </resources>
  <connections/>
 </ui>
