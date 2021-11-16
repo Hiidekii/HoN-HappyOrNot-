@@ -10,10 +10,13 @@ face_cascade = cv2.CascadeClassifier('assets/haarcascade_frontalface_default.xml
 HEIGHT, WIDTH = 48,48
 dim=(HEIGHT, WIDTH)
 
-cats = ['anger', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
+#cats = ['anger', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
 
-new_model = load_model("modelos/alldata_2_20211115_v3.h5")
-new_model.summary()
+other_emotions =  ['anger', 'disgust', 'fear', 'neutral']
+initial_emotions = ['happiness', 'other', 'sadness', 'surprise']
+
+initial_model = load_model("modelos/initial_emotions20211116_v4[sad-hap-sur].h5")
+others_model = load_model("modelos/other_emotions20211116_v4[fea-ang-dis-neu].h5")
 
 def get_face(img):
     try:
@@ -35,7 +38,12 @@ def get_prediction(imagen):
         #imagen_g =imagen.reshape(1,HEIGHT, WIDTH,1)
         print(imagen_g.shape)
         #cv2.imwrite('pruebas/waka.jpg', imagen)
-        prediction = new_model.predict(imagen_g)
-        return cats[prediction.argmax()]
+        prediction = initial_model.predict(imagen_g)
+        if initial_emotions[prediction.argmax()] != 'other':
+            return initial_emotions[prediction.argmax()]
+        else:
+            prediction = others_model.predict(imagen_g)
+            return other_emotions[prediction.argmax()]
+
     except Exception as error:
         print(error)
