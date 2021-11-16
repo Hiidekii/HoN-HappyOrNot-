@@ -133,7 +133,7 @@ dmypy.json
 data/
 /data/
 model3[@tensorflow].ipynb
-.h5
+*.h5
 .h5/
 /models/
 /gui_2/modelos/
