@@ -133,3 +133,4 @@ dmypy.json
 data/
 /data/
 model3[@tensorflow].ipynb
+.h5
