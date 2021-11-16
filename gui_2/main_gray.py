@@ -3,7 +3,7 @@
 # from PyQt6.QtGui import QPixmap, QImage 
 # from PyQt6.QtCore import QThread, pyqtSignal
 # https://sensa.co/emoji/
-
+# scrot
 
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
@@ -15,6 +15,8 @@ import numpy as np
 import cv2
 from vidgear.gears import CamGear
 from predict import get_prediction
+import mss
+import mss.tools
 # from html2text import html2text
 
 font                   = cv2.FONT_HERSHEY_SIMPLEX
@@ -31,9 +33,10 @@ class HappyOrNot(QWidget,Ui_mainWindow):
         self.tabWidget.setCurrentWidget(self.tabWidget.findChild(QWidget,"acerca_de"))
         self.load_cam_button.clicked.connect(self.cam_view)
         self.load_video_button.clicked.connect(self.video_view)
+        self.load_screen_button.clicked.connect(self.screen_view)
         self.counters = {}
         self.counters_vid={}
-
+        self.counters_screen={}
 
 
     def cam_view(self):
@@ -84,6 +87,101 @@ class HappyOrNot(QWidget,Ui_mainWindow):
 
     def CancelFeed_video(self):
         self.Worker_Video.stop()
+
+    
+    def screen_view(self):
+        self.counters_screen ={
+            'anger': {'val':0, 'lcd':self.counter_anger_screen},
+            'disgust': {'val':0, 'lcd':self.counter_disgust_screen}, 
+            'fear': {'val':0, 'lcd':self.counter_fear_screen}, 
+            'happiness': {'val':0, 'lcd':self.counter_happy_screen}, 
+            'neutral': {'val':0, 'lcd':self.counter_neutral_screen}, 
+            'sadness': {'val':0, 'lcd':self.counter_sad_screen}, 
+            'surprise': {'val':0, 'lcd':self.counter_surp_screen}
+        }
+
+     
+        self.stop_screen_button.clicked.connect(self.CancelFeed_video)
+
+        self.Worker_Screen = Worker_Screen()
+        self.Worker_Screen.start()
+        self.Worker_Screen.ImageUpdate.connect(self.ImageUpdateSlot_screen)
+
+    def ImageUpdateSlot_screen(self, Image):
+        self.screen_thread.setPixmap(QPixmap.fromImage(Image))
+
+    def CancelFeed_video(self):
+        self.Worker_Screen.stop()    
+
+
+
+class Worker_Screen(QThread):
+    ImageUpdate = pyqtSignal(QImage)
+    def run(self):
+        with mss.mss() as sct:
+            monitor_num = 1
+            mon = sct.monitors[monitor_num]
+            monitor = {
+                    "top": mon["top"],
+                    "left": mon["left"],
+                    "width": mon["width"],
+                    "height": mon["height"],
+                    "mon": monitor_num,
+            }
+            #self.stream = CamGear(source=welcome.video_path.toPlainText(), stream_mode = True, logging=False).start()
+            self.ThreadActive = True
+            # Capture = cv2.VideoCapture(0)
+            i = 0
+            x,y,w,h = 0,0,0,0
+            self.faces_gray = []
+            while self.ThreadActive:
+                img = sct.grab(monitor) # tomamos un pantallazo
+                frame = np.array(img) 
+                Image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+                for (x,y,w,h) in faces:
+                    cv2.rectangle(Image,(x,y),(x+w,y+h),(255,0,0),2)                 
+                # FlippedImage = cv2.flip(Image, 1)
+                if i == 30:
+                    if len(faces)>0:
+                        self.faces_gray = []
+                        for (x,y,w,h) in faces:
+                            careto = {}
+                            careto["gray"] = gray[y:y+h, x:x+w]
+                            careto["pos"] = (x,y,w,h)
+                            careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
+                            self.faces_gray.append(careto)
+                            welcome.emotions_screen_reg.append(careto["pred"])
+                            print(careto["pred"])
+                            print(welcome.counters_screen[careto["pred"]]['val'])
+                            welcome.counters_screen[careto["pred"]]['val'] += 1
+                            welcome.counters_screen[careto["pred"]]['lcd'].display(welcome.counters_screen[careto["pred"]]['val'])
+                        
+                        i= 0
+                else:
+                    i+=1
+                for cara in self.faces_gray:
+                    x,y,w,h = cara["pos"]
+                    cv2.putText(Image,
+                                cara["pred"], 
+                                (x,y), 
+                                font, 
+                                fontScale,
+                                fontColor,
+                                lineType)
+
+
+                ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
+                Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
+                self.ImageUpdate.emit(Pic)
+            #self.stream.stop()
+            cv2.destroyAllWindows()
+            
+    def stop(self):
+        self.ThreadActive = False
+        self.quit()
+
 
 
 class Worker_Video(QThread):
