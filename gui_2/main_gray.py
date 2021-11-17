@@ -17,6 +17,8 @@ from vidgear.gears import CamGear
 from predict import get_prediction
 import mss
 import mss.tools
+from datetime import datetime
+import time
 # from html2text import html2text
 
 font                   = cv2.FONT_HERSHEY_SIMPLEX
@@ -101,7 +103,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
         }
 
      
-        self.stop_screen_button.clicked.connect(self.CancelFeed_video)
+        self.stop_screen_button.clicked.connect(self.CancelFeed_screen)
 
         self.Worker_Screen = Worker_Screen()
         self.Worker_Screen.start()
@@ -110,7 +112,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
     def ImageUpdateSlot_screen(self, Image):
         self.screen_thread.setPixmap(QPixmap.fromImage(Image))
 
-    def CancelFeed_video(self):
+    def CancelFeed_screen(self):
         self.Worker_Screen.stop()    
 
 
@@ -119,7 +121,7 @@ class Worker_Screen(QThread):
     ImageUpdate = pyqtSignal(QImage)
     def run(self):
         with mss.mss() as sct:
-            monitor_num = 1
+            monitor_num = 2
             mon = sct.monitors[monitor_num]
             monitor = {
                     "top": mon["top"],
@@ -152,9 +154,9 @@ class Worker_Screen(QThread):
                             careto["pos"] = (x,y,w,h)
                             careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
                             self.faces_gray.append(careto)
-                            welcome.emotions_screen_reg.append(careto["pred"])
+                            welcome.emotions_screen_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
                             print(careto["pred"])
-                            print(welcome.counters_screen[careto["pred"]]['val'])
+                            # print(welcome.counters_screen[careto["pred"]]['val'])
                             welcome.counters_screen[careto["pred"]]['val'] += 1
                             welcome.counters_screen[careto["pred"]]['lcd'].display(welcome.counters_screen[careto["pred"]]['val'])
                         
@@ -210,7 +212,7 @@ class Worker_Video(QThread):
                         careto["pos"] = (x,y,w,h)
                         careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
                         self.faces_gray.append(careto)
-                        welcome.emotions_video_reg.append(careto["pred"])
+                        welcome.emotions_video_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
                         print(careto["pred"])
                         print(welcome.counters_vid[careto["pred"]]['val'])
                         welcome.counters_vid[careto["pred"]]['val'] += 1
@@ -246,7 +248,7 @@ class Worker1(QThread):
     ImageUpdate = pyqtSignal(QImage)
     def run(self):
         self.ThreadActive = True
-        Capture = cv2.VideoCapture(0)
+        Capture = cv2.VideoCapture(1)
         i = 0
         x,y,w,h = 0,0,0,0
         self.faces_gray = []
@@ -268,7 +270,7 @@ class Worker1(QThread):
                             careto["pos"] = (x,y,w,h)
                             careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
                             self.faces_gray.append(careto)
-                            welcome.emotions_cam_reg.append(careto["pred"])
+                            welcome.emotions_cam_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
                             print(careto["pred"])
                             print(welcome.counters[careto["pred"]]['val'])
                             welcome.counters[careto["pred"]]['val'] += 1
