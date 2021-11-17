@@ -52,10 +52,16 @@ and start the program with:
     Finally I used to load in the UI a model with 7 recognizable emotions and an accuraxy of about 60%.
 
 
+### gui_2 
 
 
 
-## Used data
+
+
+
+
+
+## Used data & resources
 
 [1] Kosti, Ronak, Jose M. Alvarez, Adria Recasens, and Agata Lapedriza. "Context based emotion recognition using emotic dataset." IEEE transactions on pattern analysis and machine intelligence 42, no. 11 (2019): 2755-2766.
 [2] Kosti, Ronak, Jose M. Alvarez, Adria Recasens, and Agata Lapedriza. "Emotion recognition in context." In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 1667-1675. 2017.
@@ -73,3 +79,11 @@ P. Lucey, J. F. Cohn, T. Kanade, J. Saragih, Z. Ambadar and I. Matthews, "The Ex
 ---------------------------------
 
 TFEID Dataset
+
+-----------------------------
+
+FACES https://faces.mpdl.mpg.de/imeji/
+
+----------------------------
+
+SENSA EMOJIS https://sensa.co/emoji/
