@@ -55,7 +55,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
 
         self.Worker1 = Worker1()
         self.Worker1.start()
-        self.Worker1.ImageUpdate.connect(self.ImageUpdateSlot)
+        self.Worker1.ImageUpdate1.connect(self.ImageUpdateSlot)
 
     def ImageUpdateSlot(self, Image):
         self.cam_thread.setPixmap(QPixmap.fromImage(Image))
@@ -107,7 +107,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
 
         self.Worker_Screen = Worker_Screen()
         self.Worker_Screen.start()
-        self.Worker_Screen.ImageUpdate.connect(self.ImageUpdateSlot_screen)
+        self.Worker_Screen.ImageUpdate2.connect(self.ImageUpdateSlot_screen)
 
     def ImageUpdateSlot_screen(self, Image):
         self.screen_thread.setPixmap(QPixmap.fromImage(Image))
@@ -118,7 +118,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
 
 
 class Worker_Screen(QThread):
-    ImageUpdate = pyqtSignal(QImage)
+    ImageUpdate2 = pyqtSignal(QImage)
     def run(self):
         with mss.mss() as sct:
             monitor_num = 2
@@ -176,7 +176,7 @@ class Worker_Screen(QThread):
 
                 ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
                 Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
-                self.ImageUpdate.emit(Pic)
+                self.ImageUpdate2.emit(Pic)
             #self.stream.stop()
             cv2.destroyAllWindows()
             
@@ -245,10 +245,10 @@ class Worker_Video(QThread):
 
 
 class Worker1(QThread):
-    ImageUpdate = pyqtSignal(QImage)
+    ImageUpdate1 = pyqtSignal(QImage)
     def run(self):
         self.ThreadActive = True
-        Capture = cv2.VideoCapture(1)
+        Capture = cv2.VideoCapture(-1)
         i = 0
         x,y,w,h = 0,0,0,0
         self.faces_gray = []
@@ -292,9 +292,10 @@ class Worker1(QThread):
    
                 ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
                 Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
-                self.ImageUpdate.emit(Pic)
+                self.ImageUpdate1.emit(Pic)
         Capture.release()
         cv2.destroyAllWindows()
+        self.ImageUpdate1.disconnect()
         
     def stop(self):
         self.ThreadActive = False

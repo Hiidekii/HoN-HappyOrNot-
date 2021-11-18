@@ -52,7 +52,24 @@ and start the program with:
     Finally I used to load in the UI a model with 7 recognizable emotions and an accuraxy of about 60%.
 
 
-### gui_2 
+### main
+    Here we can find the files of the interface created with qtdesigner.
+
+    We can analyze images from videos from three different sources:
+    - Webcam
+    - Youtube
+    - Screenshot
+
+#### Webcam
+[![WebCam Capture](https://img.youtube.com/vi/jKjpwnIFuek/0.jpg)](https://youtu.be/jKjpwnIFuek)
+
+#### Youtube
+
+[![Youtube Capture](https://img.youtube.com/vi/WwIlMd8oUkU/0.jpg)](https://youtu.be/WwIlMd8oUkU)
+#### Screenshot
+
+[![Screen Capture](https://img.youtube.com/vi/CkPy4aHnup8/0.jpg)](https://youtu.be/CkPy4aHnup8)
+
 
 
 
