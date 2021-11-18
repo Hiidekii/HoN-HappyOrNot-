@@ -49,7 +49,7 @@ and start the program with:
 
 ##### Images models
 > I did model training with various datasets (see the bottom of the page) performing different treatments of the images as well as combinations of models.
-Finally I used to load in the UI a model with 7 recognizable emotions and an **accuraxy of about 60%**.
+Finally I used to load in the UI a model with 7 recognizable emotions and an **accuracy of about 60%**.
 
 [![WebCam Capture](https://img.youtube.com/vi/DKEnSHfwXgk/0.jpg)](https://youtu.be/DKEnSHfwXgk)
 
