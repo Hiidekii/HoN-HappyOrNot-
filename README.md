@@ -51,6 +51,7 @@ and start the program with:
 
     Finally I used to load in the UI a model with 7 recognizable emotions and an accuraxy of about 60%.
 
+[![WebCam Capture](https://img.youtube.com/vi/DKEnSHfwXgk/0.jpg)](https://youtu.be/DKEnSHfwXgk)
 
 ### main
     Here we can find the files of the interface created with qtdesigner.
