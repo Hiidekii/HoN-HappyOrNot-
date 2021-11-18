@@ -1,5 +1,5 @@
-# HoN
-FER Machine learning project to detect people's emotions at a certain moment in different environments
+# Happy or Not
+> FER(Face Emotion Recognition) Machine learning project to detect people's emotions at a certain moment in different environments
 
 # Requirements
 This libraries are needed:
@@ -9,7 +9,8 @@ This libraries are needed:
     - Numpy
     - PIL
     - os
-### UI 
+    - FaceRecognition
+### UI & image capture
     - PyQt6
     - sys
     - mms
@@ -30,10 +31,10 @@ and start the program with:
 
 # Contents   
 ### clean&fit
-    In the clean & fit directory you will find all the algorithms and functions used to load, review, clean and transform the datasets.
+> In the clean & fit directory you will find all the algorithms and functions used to load, review, clean and transform the datasets.
 
 ##### Landmarks model
-    The first attempt was to fit a model and make predictions only with the landmarks of each photo.
+> The first attempt was to fit a model and make predictions only with the landmarks of each photo.
 
 <img src="imgs/lmhap.png"
      width= "128px" /> 
@@ -44,19 +45,19 @@ and start the program with:
 <img src="imgs/lmfear.png"
      width= "128px" />    
     
-    This model had a very low accuracy after testing with several datasets, therefore it was discarded.
+> This model had a very low accuracy after testing with several datasets, therefore it was discarded.
 
 ##### Images models
-    I did model training with various datasets (see the bottom of the page) performing different treatments of the images as well as combinations of models.
-
-    Finally I used to load in the UI a model with 7 recognizable emotions and an accuraxy of about 60%.
+> I did model training with various datasets (see the bottom of the page) performing different treatments of the images as well as combinations of models.
+Finally I used to load in the UI a model with 7 recognizable emotions and an **accuraxy of about 60%**.
 
 [![WebCam Capture](https://img.youtube.com/vi/DKEnSHfwXgk/0.jpg)](https://youtu.be/DKEnSHfwXgk)
 
 ### main
-    Here we can find the files of the interface created with qtdesigner.
+> Here we can find the files of the interface created with qtdesigner.
 
-    We can analyze images from videos from three different sources:
+> We can analyze images from videos from three different sources:
+
     - Webcam
     - Youtube
     - Screenshot
@@ -70,13 +71,6 @@ and start the program with:
 #### Screenshot
 
 [![Screen Capture](https://img.youtube.com/vi/CkPy4aHnup8/0.jpg)](https://youtu.be/CkPy4aHnup8)
-
-
-
-
-
-
-
 
 
 ## Used data & resources
