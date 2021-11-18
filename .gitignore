@@ -136,5 +136,6 @@ model3[@tensorflow].ipynb
 *.h5
 .h5/
 /models/
-/gui_2/modelos/
+/main/modelos/
 /nosubir/
+/main/bck/

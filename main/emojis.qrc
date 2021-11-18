@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="imgs">
+    <file>imgs/ghico.png</file>
+    <file>imgs/github-logo-.png</file>
+    <file>imgs/pngwing.com.png</file>
+    <file>imgs/Mail-icon-by-ahlangraphic-11-580x386 (1).jpg</file>
     <file>imgs/Zipper-mouth face.png</file>
     <file>imgs/Zany face.png</file>
     <file>imgs/Yawning face.png</file>
