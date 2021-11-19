@@ -8,6 +8,7 @@
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6.QtCore import *
+from PyQt6 import QtCore, QtGui, QtWidgets
 from hon import Ui_mainWindow
 import sys
 import requests
@@ -310,7 +311,7 @@ class Worker1(QThread):
 if __name__ == "__main__":
     # Necesitamos siempre una aplicación
     app = QApplication(sys.argv)
-
+    app.setWindowIcon(QIcon('imgs/Hugging face.png'))
     # Pueden haber diferentes widgets
     welcome = HappyOrNot()
     welcome.show()

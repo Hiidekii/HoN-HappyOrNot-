@@ -571,7 +571,7 @@ class Ui_mainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         mainWindow.setWindowTitle(_translate("mainWindow", "Happy Or Not "))
         self.toolButton_image.setText(_translate("mainWindow", "..."))
-        self.load_image_button.setText(_translate("mainWindow", "Play Video"))
+        self.load_image_button.setText(_translate("mainWindow", "Load Image"))
         self.labelimage.setText(_translate("mainWindow", "Emotions Detected"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.images_tab), _translate("mainWindow", "Images"))
         self.stop_screen_button.setText(_translate("mainWindow", "Parar captura"))
