@@ -3,14 +3,11 @@ from PyQt6.QtGui import *
 from PyQt6.QtCore import *
 from modules.hon import Ui_mainWindow
 from modules.predict import get_prediction
+from modules.video import Worker_Video
 from modules.cam import Worker1
+from modules.sccap import Worker_Screen
 import sys
-import numpy as np
 import cv2
-from vidgear.gears import CamGear
-import mss
-import mss.tools
-import time
 
 opencv_conf = {
             'font' : cv2.FONT_HERSHEY_SIMPLEX,
@@ -71,7 +68,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
         if self.video_path.toPlainText() != "":      
             self.stop_video_button.clicked.connect(self.CancelFeed_video)
 
-            self.Worker_Video = Worker_Video()
+            self.Worker_Video = Worker_Video(opencv_conf,welcome)
             self.Worker_Video.start()
             self.Worker_Video.ImageUpdate.connect(self.ImageUpdateSlot_video)
         else:
@@ -97,7 +94,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
      
         self.stop_screen_button.clicked.connect(self.CancelFeed_screen)
 
-        self.Worker_Screen = Worker_Screen()
+        self.Worker_Screen = Worker_Screen(opencv_conf,welcome)
         self.Worker_Screen.start()
         self.Worker_Screen.ImageUpdate2.connect(self.ImageUpdateSlot_screen)
 
@@ -109,144 +106,28 @@ class HappyOrNot(QWidget,Ui_mainWindow):
 
 
 
-class Worker_Screen(QThread):
-    ImageUpdate2 = pyqtSignal(QImage)
-    def run(self):
-        with mss.mss() as sct:
-            monitor_num = 2
-            mon = sct.monitors[monitor_num]
-            monitor = {
-                    "top": mon["top"],
-                    "left": mon["left"],
-                    "width": mon["width"],
-                    "height": mon["height"],
-                    "mon": monitor_num,
-            }
-            #self.stream = CamGear(source=welcome.video_path.toPlainText(), stream_mode = True, logging=False).start()
-            self.ThreadActive = True
-            # Capture = cv2.VideoCapture(0)
-            i = 0
-            x,y,w,h = 0,0,0,0
-            self.faces_gray = []
-            while self.ThreadActive:
-                img = sct.grab(monitor) # tomamos un pantallazo
-                frame = np.array(img) 
-                Image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-                for (x,y,w,h) in faces:
-                    cv2.rectangle(Image,(x,y),(x+w,y+h),(255,0,0),2)                 
-                # FlippedImage = cv2.flip(Image, 1)
-                if i == 30:
-                    if len(faces)>0:
-                        self.faces_gray = []
-                        for (x,y,w,h) in faces:
-                            careto = {}
-                            careto["gray"] = gray[y:y+h, x:x+w]
-                            careto["pos"] = (x,y,w,h)
-                            careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
-                            self.faces_gray.append(careto)
-                            welcome.emotions_screen_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
-                            print(careto["pred"])
-                            # print(welcome.counters_screen[careto["pred"]]['val'])
-                            welcome.counters_screen[careto["pred"]]['val'] += 1
-                            welcome.counters_screen[careto["pred"]]['lcd'].display(welcome.counters_screen[careto["pred"]]['val'])
-                        
-                        i= 0
-                else:
-                    i+=1
-                for cara in self.faces_gray:
-                    x,y,w,h = cara["pos"]
-                    cv2.putText(Image,
-                                cara["pred"], 
-                                (x,y), 
-                                font, 
-                                fontScale,
-                                fontColor,
-                                lineType)
-
-
-                ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
-                Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
-                self.ImageUpdate2.emit(Pic)
-            #self.stream.stop()
-            cv2.destroyAllWindows()
-            
-    def stop(self):
-        self.ThreadActive = False
-        self.quit()
-
-
-
-class Worker_Video(QThread):
-    ImageUpdate = pyqtSignal(QImage)
-    def run(self):
-        self.stream = CamGear(source=welcome.video_path.toPlainText(), stream_mode = True, logging=False).start()
-        self.ThreadActive = True
-        # Capture = cv2.VideoCapture(0)
-        i = 0
-        x,y,w,h = 0,0,0,0
-        self.faces_gray = []
-        while self.ThreadActive:
-            frame = self.stream.read()
-            Image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-            for (x,y,w,h) in faces:
-                cv2.rectangle(Image,(x,y),(x+w,y+h),(255,0,0),2)                 
-            # FlippedImage = cv2.flip(Image, 1)
-            if i == 30:
-                if len(faces)>0:
-                    self.faces_gray = []
-                    for (x,y,w,h) in faces:
-                        careto = {}
-                        careto["gray"] = gray[y:y+h, x:x+w]
-                        careto["pos"] = (x,y,w,h)
-                        careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
-                        self.faces_gray.append(careto)
-                        welcome.emotions_video_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
-                        print(careto["pred"])
-                        print(welcome.counters_vid[careto["pred"]]['val'])
-                        welcome.counters_vid[careto["pred"]]['val'] += 1
-                        welcome.counters_vid[careto["pred"]]['lcd'].display(welcome.counters_vid[careto["pred"]]['val'])
-                    
-                    i= 0
-            else:
-                i+=1
-            for cara in self.faces_gray:
-                x,y,w,h = cara["pos"]
-                cv2.putText(Image,
-                            cara["pred"], 
-                            (x,y), 
-                            font, 
-                            fontScale,
-                            fontColor,
-                            lineType)
-
-
-            ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
-            Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
-            self.ImageUpdate.emit(Pic)
-        self.stream.stop()
-        cv2.destroyAllWindows()
-        
-    def stop(self):
-        self.ThreadActive = False
-        self.quit()
-
-
-
-# class Worker1(QThread):
-#     ImageUpdate1 = pyqtSignal(QImage)
+# class Worker_Screen(QThread):
+#     ImageUpdate2 = pyqtSignal(QImage)
 #     def run(self):
-#         self.ThreadActive = True
-#         Capture = cv2.VideoCapture(-1)
-#         i = 0
-#         x,y,w,h = 0,0,0,0
-#         self.faces_gray = []
-#         while self.ThreadActive:
-#             ret, frame = Capture.read()
-#             if ret:
+#         with mss.mss() as sct:
+#             monitor_num = 2
+#             mon = sct.monitors[monitor_num]
+#             monitor = {
+#                     "top": mon["top"],
+#                     "left": mon["left"],
+#                     "width": mon["width"],
+#                     "height": mon["height"],
+#                     "mon": monitor_num,
+#             }
+#             #self.stream = CamGear(source=welcome.video_path.toPlainText(), stream_mode = True, logging=False).start()
+#             self.ThreadActive = True
+#             # Capture = cv2.VideoCapture(0)
+#             i = 0
+#             x,y,w,h = 0,0,0,0
+#             self.faces_gray = []
+#             while self.ThreadActive:
+#                 img = sct.grab(monitor) # tomamos un pantallazo
+#                 frame = np.array(img) 
 #                 Image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 #                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 #                 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
@@ -262,11 +143,11 @@ class Worker_Video(QThread):
 #                             careto["pos"] = (x,y,w,h)
 #                             careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
 #                             self.faces_gray.append(careto)
-#                             welcome.emotions_cam_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
+#                             welcome.emotions_screen_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
 #                             print(careto["pred"])
-#                             print(welcome.counters[careto["pred"]]['val'])
-#                             welcome.counters[careto["pred"]]['val'] += 1
-#                             welcome.counters[careto["pred"]]['lcd'].display(welcome.counters[careto["pred"]]['val'])
+#                             # print(welcome.counters_screen[careto["pred"]]['val'])
+#                             welcome.counters_screen[careto["pred"]]['val'] += 1
+#                             welcome.counters_screen[careto["pred"]]['lcd'].display(welcome.counters_screen[careto["pred"]]['val'])
                         
 #                         i= 0
 #                 else:
@@ -281,19 +162,16 @@ class Worker_Video(QThread):
 #                                 fontColor,
 #                                 lineType)
 
-   
+
 #                 ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
 #                 Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
-#                 self.ImageUpdate1.emit(Pic)
-#         Capture.release()
-#         cv2.destroyAllWindows()
-#         self.ImageUpdate1.disconnect()
-        
+#                 self.ImageUpdate2.emit(Pic)
+#             #self.stream.stop()
+#             cv2.destroyAllWindows()
+            
 #     def stop(self):
 #         self.ThreadActive = False
 #         self.quit()
-
-
 
 
 
