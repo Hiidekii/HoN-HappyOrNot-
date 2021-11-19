@@ -1,32 +1,23 @@
-
-# from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout,QPushButton,QTextEdit
-# from PyQt6.QtGui import QPixmap, QImage 
-# from PyQt6.QtCore import QThread, pyqtSignal
-# https://sensa.co/emoji/
-# scrot
-
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6.QtCore import *
-from PyQt6 import QtCore, QtGui, QtWidgets
-from hon import Ui_mainWindow
+from modules.hon import Ui_mainWindow
+from modules.predict import get_prediction
+from modules.cam import Worker1
 import sys
-import requests
 import numpy as np
 import cv2
 from vidgear.gears import CamGear
-from predict import get_prediction
 import mss
 import mss.tools
-from datetime import datetime
 import time
-# from html2text import html2text
 
-font                   = cv2.FONT_HERSHEY_SIMPLEX
-fontScale              = 1
-fontColor              = (0, 255, 17)
-lineType               = 2
-face_cascade = cv2.CascadeClassifier('assets/haarcascade_frontalface_default.xml')
+opencv_conf = {
+            'font' : cv2.FONT_HERSHEY_SIMPLEX,
+            'fontScale' : 1,
+            'fontColor' : (0, 255, 17),
+            'lineType'  : 2
+}
 
 class HappyOrNot(QWidget,Ui_mainWindow):
     def __init__(self):
@@ -54,7 +45,7 @@ class HappyOrNot(QWidget,Ui_mainWindow):
         }      
         self.stop_cam_button.clicked.connect(self.CancelFeed)
 
-        self.Worker1 = Worker1()
+        self.Worker1 = Worker1(opencv_conf,welcome)
         self.Worker1.start()
         self.Worker1.ImageUpdate1.connect(self.ImageUpdateSlot)
 
@@ -245,62 +236,62 @@ class Worker_Video(QThread):
 
 
 
-class Worker1(QThread):
-    ImageUpdate1 = pyqtSignal(QImage)
-    def run(self):
-        self.ThreadActive = True
-        Capture = cv2.VideoCapture(-1)
-        i = 0
-        x,y,w,h = 0,0,0,0
-        self.faces_gray = []
-        while self.ThreadActive:
-            ret, frame = Capture.read()
-            if ret:
-                Image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-                for (x,y,w,h) in faces:
-                    cv2.rectangle(Image,(x,y),(x+w,y+h),(255,0,0),2)                 
-                # FlippedImage = cv2.flip(Image, 1)
-                if i == 30:
-                    if len(faces)>0:
-                        self.faces_gray = []
-                        for (x,y,w,h) in faces:
-                            careto = {}
-                            careto["gray"] = gray[y:y+h, x:x+w]
-                            careto["pos"] = (x,y,w,h)
-                            careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
-                            self.faces_gray.append(careto)
-                            welcome.emotions_cam_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
-                            print(careto["pred"])
-                            print(welcome.counters[careto["pred"]]['val'])
-                            welcome.counters[careto["pred"]]['val'] += 1
-                            welcome.counters[careto["pred"]]['lcd'].display(welcome.counters[careto["pred"]]['val'])
+# class Worker1(QThread):
+#     ImageUpdate1 = pyqtSignal(QImage)
+#     def run(self):
+#         self.ThreadActive = True
+#         Capture = cv2.VideoCapture(-1)
+#         i = 0
+#         x,y,w,h = 0,0,0,0
+#         self.faces_gray = []
+#         while self.ThreadActive:
+#             ret, frame = Capture.read()
+#             if ret:
+#                 Image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+#                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#                 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+#                 for (x,y,w,h) in faces:
+#                     cv2.rectangle(Image,(x,y),(x+w,y+h),(255,0,0),2)                 
+#                 # FlippedImage = cv2.flip(Image, 1)
+#                 if i == 30:
+#                     if len(faces)>0:
+#                         self.faces_gray = []
+#                         for (x,y,w,h) in faces:
+#                             careto = {}
+#                             careto["gray"] = gray[y:y+h, x:x+w]
+#                             careto["pos"] = (x,y,w,h)
+#                             careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
+#                             self.faces_gray.append(careto)
+#                             welcome.emotions_cam_reg.append(careto["pred"] + "  at  " + time.strftime("%X"))
+#                             print(careto["pred"])
+#                             print(welcome.counters[careto["pred"]]['val'])
+#                             welcome.counters[careto["pred"]]['val'] += 1
+#                             welcome.counters[careto["pred"]]['lcd'].display(welcome.counters[careto["pred"]]['val'])
                         
-                        i= 0
-                else:
-                    i+=1
-                for cara in self.faces_gray:
-                    x,y,w,h = cara["pos"]
-                    cv2.putText(Image,
-                                cara["pred"], 
-                                (x,y), 
-                                font, 
-                                fontScale,
-                                fontColor,
-                                lineType)
+#                         i= 0
+#                 else:
+#                     i+=1
+#                 for cara in self.faces_gray:
+#                     x,y,w,h = cara["pos"]
+#                     cv2.putText(Image,
+#                                 cara["pred"], 
+#                                 (x,y), 
+#                                 font, 
+#                                 fontScale,
+#                                 fontColor,
+#                                 lineType)
 
    
-                ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
-                Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
-                self.ImageUpdate1.emit(Pic)
-        Capture.release()
-        cv2.destroyAllWindows()
-        self.ImageUpdate1.disconnect()
+#                 ConvertToQtFormat = QImage(Image.data, Image.shape[1], Image.shape[0], QImage.Format.Format_RGB888)
+#                 Pic = ConvertToQtFormat.scaled(640, 480, Qt.AspectRatioMode.KeepAspectRatio)
+#                 self.ImageUpdate1.emit(Pic)
+#         Capture.release()
+#         cv2.destroyAllWindows()
+#         self.ImageUpdate1.disconnect()
         
-    def stop(self):
-        self.ThreadActive = False
-        self.quit()
+#     def stop(self):
+#         self.ThreadActive = False
+#         self.quit()
 
 
 
