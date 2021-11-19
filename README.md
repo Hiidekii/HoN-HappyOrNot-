@@ -1,4 +1,6 @@
 # Happy or Not
+
+[![WebCam Capture](https://i0.wp.com/sonria.com/wp-content/uploads/2016/07/eeaa2.jpg?resize=700%2C224&ssl=1)](https://i0.wp.com/sonria.com/wp-content/uploads/2016/07/eeaa2.jpg?resize=700%2C224&ssl=1)
 > FER(Face Emotion Recognition) Machine learning project to detect people's emotions at a certain moment in different environments
 
 # Requirements
