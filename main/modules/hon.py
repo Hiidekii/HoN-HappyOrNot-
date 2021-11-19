@@ -17,41 +17,45 @@ class Ui_mainWindow(object):
         mainWindow.setMaximumSize(QtCore.QSize(901, 671))
         mainWindow.setAutoFillBackground(False)
         mainWindow.setStyleSheet("#mainWindow{\n"
-"    background-color : #FC6941\n"
-"}\n"
-"\n"
-".QPushButton{\n"
-"    background-color: #FC6941\n"
-"}\n"
-".TtabWidget{\n"
-"background-color: #FFFFFF\n"
-"}\n"
-".QFrame{\n"
-"background-color: #FC6941\n"
-"}\n"
-"\n"
-".QLCDNumber{\n"
-"    background-color: #FFFFFF\n"
-"}")
+                                 "    background-color : #FC6941\n"
+                                 "}\n"
+                                 "\n"
+                                 ".QPushButton{\n"
+                                 "    background-color: #FC6941\n"
+                                 "}\n"
+                                 ".TtabWidget{\n"
+                                 "background-color: #FFFFFF\n"
+                                 "}\n"
+                                 ".QFrame{\n"
+                                 "background-color: #FC6941\n"
+                                 "}\n"
+                                 "\n"
+                                 ".QLCDNumber{\n"
+                                 "    background-color: #FFFFFF\n"
+                                 "}")
         self.tabWidget = QtWidgets.QTabWidget(mainWindow)
         self.tabWidget.setGeometry(QtCore.QRect(10, 10, 881, 651))
         self.tabWidget.setMinimumSize(QtCore.QSize(881, 651))
         self.tabWidget.setMaximumSize(QtCore.QSize(881, 651))
-        self.tabWidget.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
-        self.tabWidget.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.tabWidget.setCursor(QtGui.QCursor(
+            QtCore.Qt.CursorShape.ArrowCursor))
+        self.tabWidget.setLayoutDirection(
+            QtCore.Qt.LayoutDirection.LeftToRight)
         self.tabWidget.setAutoFillBackground(False)
         self.tabWidget.setStyleSheet("#tabWidget{\n"
-"background-color: #FFFFFF\n"
-"}")
+                                     "background-color: #FFFFFF\n"
+                                     "}")
         self.tabWidget.setTabPosition(QtWidgets.QTabWidget.TabPosition.North)
         self.tabWidget.setTabShape(QtWidgets.QTabWidget.TabShape.Rounded)
         self.tabWidget.setIconSize(QtCore.QSize(20, 20))
         self.tabWidget.setElideMode(QtCore.Qt.TextElideMode.ElideNone)
         self.tabWidget.setObjectName("tabWidget")
         self.images_tab = QtWidgets.QWidget()
-        self.images_tab.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
+        self.images_tab.setCursor(QtGui.QCursor(
+            QtCore.Qt.CursorShape.ArrowCursor))
         self.images_tab.setToolTip("")
-        self.images_tab.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.images_tab.setLayoutDirection(
+            QtCore.Qt.LayoutDirection.LeftToRight)
         self.images_tab.setObjectName("images_tab")
         self.image_thread = QtWidgets.QLabel(self.images_tab)
         self.image_thread.setGeometry(QtCore.QRect(10, 10, 400, 400))
@@ -100,26 +104,30 @@ class Ui_mainWindow(object):
         self.load_screen_button.setObjectName("load_screen_button")
         self.contadores_screen = QtWidgets.QFrame(self.capture_tab)
         self.contadores_screen.setGeometry(QtCore.QRect(50, 500, 781, 111))
-        self.contadores_screen.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.contadores_screen.setFrameShape(
+            QtWidgets.QFrame.Shape.StyledPanel)
         self.contadores_screen.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.contadores_screen.setObjectName("contadores_screen")
         self.label_screen_happy = QtWidgets.QLabel(self.contadores_screen)
         self.label_screen_happy.setGeometry(QtCore.QRect(50, 30, 50, 50))
         self.label_screen_happy.setText("")
-        self.label_screen_happy.setPixmap(QtGui.QPixmap("imgs/Smiling face with smiling eyes.png"))
+        self.label_screen_happy.setPixmap(QtGui.QPixmap(
+            "imgs/Smiling face with smiling eyes.png"))
         self.label_screen_happy.setScaledContents(True)
         self.label_screen_happy.setWordWrap(False)
         self.label_screen_happy.setObjectName("label_screen_happy")
         self.label_screen_surprise = QtWidgets.QLabel(self.contadores_screen)
         self.label_screen_surprise.setGeometry(QtCore.QRect(250, 30, 50, 50))
         self.label_screen_surprise.setText("")
-        self.label_screen_surprise.setPixmap(QtGui.QPixmap("imgs/Astonished face.png"))
+        self.label_screen_surprise.setPixmap(
+            QtGui.QPixmap("imgs/Astonished face.png"))
         self.label_screen_surprise.setScaledContents(True)
         self.label_screen_surprise.setObjectName("label_screen_surprise")
         self.label_screen_sad = QtWidgets.QLabel(self.contadores_screen)
         self.label_screen_sad.setGeometry(QtCore.QRect(150, 30, 50, 50))
         self.label_screen_sad.setText("")
-        self.label_screen_sad.setPixmap(QtGui.QPixmap("imgs/Slightly frowning face.png"))
+        self.label_screen_sad.setPixmap(
+            QtGui.QPixmap("imgs/Slightly frowning face.png"))
         self.label_screen_sad.setScaledContents(True)
         self.label_screen_sad.setObjectName("label_screen_sad")
         self.label_screen_anger = QtWidgets.QLabel(self.contadores_screen)
@@ -135,21 +143,26 @@ class Ui_mainWindow(object):
         self.counter_fear_screen.setLineWidth(1)
         self.counter_fear_screen.setMidLineWidth(0)
         self.counter_fear_screen.setSmallDecimalPoint(False)
-        self.counter_fear_screen.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_fear_screen.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_fear_screen.setObjectName("counter_fear_screen")
-        self.counter_neutral_screen = QtWidgets.QLCDNumber(self.contadores_screen)
+        self.counter_neutral_screen = QtWidgets.QLCDNumber(
+            self.contadores_screen)
         self.counter_neutral_screen.setGeometry(QtCore.QRect(450, 80, 64, 23))
         self.counter_neutral_screen.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.counter_neutral_screen.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.counter_neutral_screen.setFrameShadow(
+            QtWidgets.QFrame.Shadow.Sunken)
         self.counter_neutral_screen.setLineWidth(1)
         self.counter_neutral_screen.setMidLineWidth(0)
         self.counter_neutral_screen.setSmallDecimalPoint(False)
-        self.counter_neutral_screen.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_neutral_screen.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_neutral_screen.setObjectName("counter_neutral_screen")
         self.label_screen_neutral = QtWidgets.QLabel(self.contadores_screen)
         self.label_screen_neutral.setGeometry(QtCore.QRect(460, 30, 50, 50))
         self.label_screen_neutral.setText("")
-        self.label_screen_neutral.setPixmap(QtGui.QPixmap("imgs/Neutral face.png"))
+        self.label_screen_neutral.setPixmap(
+            QtGui.QPixmap("imgs/Neutral face.png"))
         self.label_screen_neutral.setScaledContents(True)
         self.label_screen_neutral.setObjectName("label_screen_neutral")
         self.counter_surp_screen = QtWidgets.QLCDNumber(self.contadores_screen)
@@ -159,16 +172,20 @@ class Ui_mainWindow(object):
         self.counter_surp_screen.setLineWidth(1)
         self.counter_surp_screen.setMidLineWidth(0)
         self.counter_surp_screen.setSmallDecimalPoint(False)
-        self.counter_surp_screen.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_surp_screen.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_surp_screen.setObjectName("counter_surp_screen")
-        self.counter_happy_screen = QtWidgets.QLCDNumber(self.contadores_screen)
+        self.counter_happy_screen = QtWidgets.QLCDNumber(
+            self.contadores_screen)
         self.counter_happy_screen.setGeometry(QtCore.QRect(40, 80, 64, 23))
         self.counter_happy_screen.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.counter_happy_screen.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.counter_happy_screen.setFrameShadow(
+            QtWidgets.QFrame.Shadow.Sunken)
         self.counter_happy_screen.setLineWidth(1)
         self.counter_happy_screen.setMidLineWidth(0)
         self.counter_happy_screen.setSmallDecimalPoint(False)
-        self.counter_happy_screen.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_happy_screen.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_happy_screen.setObjectName("counter_happy_screen")
         self.counter_sad_screen = QtWidgets.QLCDNumber(self.contadores_screen)
         self.counter_sad_screen.setGeometry(QtCore.QRect(140, 80, 64, 23))
@@ -177,43 +194,53 @@ class Ui_mainWindow(object):
         self.counter_sad_screen.setLineWidth(1)
         self.counter_sad_screen.setMidLineWidth(0)
         self.counter_sad_screen.setSmallDecimalPoint(False)
-        self.counter_sad_screen.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_sad_screen.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_sad_screen.setObjectName("counter_sad_screen")
-        self.counter_disgust_screen = QtWidgets.QLCDNumber(self.contadores_screen)
+        self.counter_disgust_screen = QtWidgets.QLCDNumber(
+            self.contadores_screen)
         self.counter_disgust_screen.setGeometry(QtCore.QRect(560, 80, 64, 23))
         self.counter_disgust_screen.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.counter_disgust_screen.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.counter_disgust_screen.setFrameShadow(
+            QtWidgets.QFrame.Shadow.Sunken)
         self.counter_disgust_screen.setLineWidth(1)
         self.counter_disgust_screen.setMidLineWidth(0)
         self.counter_disgust_screen.setSmallDecimalPoint(False)
-        self.counter_disgust_screen.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_disgust_screen.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_disgust_screen.setObjectName("counter_disgust_screen")
-        self.counter_anger_screen = QtWidgets.QLCDNumber(self.contadores_screen)
+        self.counter_anger_screen = QtWidgets.QLCDNumber(
+            self.contadores_screen)
         self.counter_anger_screen.setGeometry(QtCore.QRect(670, 80, 64, 23))
         self.counter_anger_screen.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.counter_anger_screen.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.counter_anger_screen.setFrameShadow(
+            QtWidgets.QFrame.Shadow.Sunken)
         self.counter_anger_screen.setLineWidth(1)
         self.counter_anger_screen.setMidLineWidth(0)
         self.counter_anger_screen.setSmallDecimalPoint(False)
         self.counter_anger_screen.setMode(QtWidgets.QLCDNumber.Mode.Dec)
-        self.counter_anger_screen.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_anger_screen.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_anger_screen.setObjectName("counter_anger_screen")
         self.label_screen_fear = QtWidgets.QLabel(self.contadores_screen)
         self.label_screen_fear.setGeometry(QtCore.QRect(360, 30, 50, 50))
         self.label_screen_fear.setText("")
-        self.label_screen_fear.setPixmap(QtGui.QPixmap("imgs/Fearful face.png"))
+        self.label_screen_fear.setPixmap(
+            QtGui.QPixmap("imgs/Fearful face.png"))
         self.label_screen_fear.setScaledContents(True)
         self.label_screen_fear.setObjectName("label_screen_fear")
         self.label_screen_disgust = QtWidgets.QLabel(self.contadores_screen)
         self.label_screen_disgust.setGeometry(QtCore.QRect(570, 30, 50, 50))
         self.label_screen_disgust.setText("")
-        self.label_screen_disgust.setPixmap(QtGui.QPixmap("imgs/Pensive face.png"))
+        self.label_screen_disgust.setPixmap(
+            QtGui.QPixmap("imgs/Pensive face.png"))
         self.label_screen_disgust.setScaledContents(True)
         self.label_screen_disgust.setObjectName("label_screen_disgust")
         self.label_screen_emometer = QtWidgets.QLabel(self.contadores_screen)
         self.label_screen_emometer.setGeometry(QtCore.QRect(200, -4, 391, 41))
         self.label_screen_emometer.setScaledContents(True)
-        self.label_screen_emometer.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_screen_emometer.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_screen_emometer.setWordWrap(False)
         self.label_screen_emometer.setObjectName("label_screen_emometer")
         self.labelscreen1 = QtWidgets.QLabel(self.capture_tab)
@@ -257,14 +284,16 @@ class Ui_mainWindow(object):
         self.label_video_happy = QtWidgets.QLabel(self.contadores_vid)
         self.label_video_happy.setGeometry(QtCore.QRect(50, 30, 50, 50))
         self.label_video_happy.setText("")
-        self.label_video_happy.setPixmap(QtGui.QPixmap("imgs/Smiling face with smiling eyes.png"))
+        self.label_video_happy.setPixmap(QtGui.QPixmap(
+            "imgs/Smiling face with smiling eyes.png"))
         self.label_video_happy.setScaledContents(True)
         self.label_video_happy.setWordWrap(False)
         self.label_video_happy.setObjectName("label_video_happy")
         self.label_video_surprise = QtWidgets.QLabel(self.contadores_vid)
         self.label_video_surprise.setGeometry(QtCore.QRect(250, 30, 50, 50))
         self.label_video_surprise.setText("")
-        self.label_video_surprise.setPixmap(QtGui.QPixmap("imgs/Astonished face.png"))
+        self.label_video_surprise.setPixmap(
+            QtGui.QPixmap("imgs/Astonished face.png"))
         self.label_video_surprise.setScaledContents(True)
         self.label_video_surprise.setObjectName("label_video_surprise")
         self.label_video_sad = QtWidgets.QLabel(self.contadores_vid)
@@ -286,7 +315,8 @@ class Ui_mainWindow(object):
         self.counter_fear_vid.setLineWidth(1)
         self.counter_fear_vid.setMidLineWidth(0)
         self.counter_fear_vid.setSmallDecimalPoint(False)
-        self.counter_fear_vid.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_fear_vid.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_fear_vid.setObjectName("counter_fear_vid")
         self.counter_neutral_vid = QtWidgets.QLCDNumber(self.contadores_vid)
         self.counter_neutral_vid.setGeometry(QtCore.QRect(450, 80, 64, 23))
@@ -295,12 +325,14 @@ class Ui_mainWindow(object):
         self.counter_neutral_vid.setLineWidth(1)
         self.counter_neutral_vid.setMidLineWidth(0)
         self.counter_neutral_vid.setSmallDecimalPoint(False)
-        self.counter_neutral_vid.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_neutral_vid.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_neutral_vid.setObjectName("counter_neutral_vid")
         self.label_video_neutral = QtWidgets.QLabel(self.contadores_vid)
         self.label_video_neutral.setGeometry(QtCore.QRect(460, 30, 50, 50))
         self.label_video_neutral.setText("")
-        self.label_video_neutral.setPixmap(QtGui.QPixmap("imgs/Neutral face.png"))
+        self.label_video_neutral.setPixmap(
+            QtGui.QPixmap("imgs/Neutral face.png"))
         self.label_video_neutral.setScaledContents(True)
         self.label_video_neutral.setObjectName("label_video_neutral")
         self.counter_surp_vid = QtWidgets.QLCDNumber(self.contadores_vid)
@@ -310,7 +342,8 @@ class Ui_mainWindow(object):
         self.counter_surp_vid.setLineWidth(1)
         self.counter_surp_vid.setMidLineWidth(0)
         self.counter_surp_vid.setSmallDecimalPoint(False)
-        self.counter_surp_vid.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_surp_vid.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_surp_vid.setObjectName("counter_surp_vid")
         self.counter_happy_vid = QtWidgets.QLCDNumber(self.contadores_vid)
         self.counter_happy_vid.setGeometry(QtCore.QRect(40, 80, 64, 23))
@@ -319,7 +352,8 @@ class Ui_mainWindow(object):
         self.counter_happy_vid.setLineWidth(1)
         self.counter_happy_vid.setMidLineWidth(0)
         self.counter_happy_vid.setSmallDecimalPoint(False)
-        self.counter_happy_vid.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_happy_vid.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_happy_vid.setObjectName("counter_happy_vid")
         self.counter_sad_vid = QtWidgets.QLCDNumber(self.contadores_vid)
         self.counter_sad_vid.setGeometry(QtCore.QRect(140, 80, 64, 23))
@@ -328,7 +362,8 @@ class Ui_mainWindow(object):
         self.counter_sad_vid.setLineWidth(1)
         self.counter_sad_vid.setMidLineWidth(0)
         self.counter_sad_vid.setSmallDecimalPoint(False)
-        self.counter_sad_vid.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_sad_vid.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_sad_vid.setObjectName("counter_sad_vid")
         self.counter_disgust_vid = QtWidgets.QLCDNumber(self.contadores_vid)
         self.counter_disgust_vid.setGeometry(QtCore.QRect(560, 80, 64, 23))
@@ -337,7 +372,8 @@ class Ui_mainWindow(object):
         self.counter_disgust_vid.setLineWidth(1)
         self.counter_disgust_vid.setMidLineWidth(0)
         self.counter_disgust_vid.setSmallDecimalPoint(False)
-        self.counter_disgust_vid.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_disgust_vid.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_disgust_vid.setObjectName("counter_disgust_vid")
         self.counter_anger_vid = QtWidgets.QLCDNumber(self.contadores_vid)
         self.counter_anger_vid.setGeometry(QtCore.QRect(670, 80, 64, 23))
@@ -347,7 +383,8 @@ class Ui_mainWindow(object):
         self.counter_anger_vid.setMidLineWidth(0)
         self.counter_anger_vid.setSmallDecimalPoint(False)
         self.counter_anger_vid.setMode(QtWidgets.QLCDNumber.Mode.Dec)
-        self.counter_anger_vid.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_anger_vid.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_anger_vid.setObjectName("counter_anger_vid")
         self.label_video_fear = QtWidgets.QLabel(self.contadores_vid)
         self.label_video_fear.setGeometry(QtCore.QRect(360, 30, 50, 50))
@@ -358,13 +395,15 @@ class Ui_mainWindow(object):
         self.label_video_disgust = QtWidgets.QLabel(self.contadores_vid)
         self.label_video_disgust.setGeometry(QtCore.QRect(570, 30, 50, 50))
         self.label_video_disgust.setText("")
-        self.label_video_disgust.setPixmap(QtGui.QPixmap("imgs/Pensive face.png"))
+        self.label_video_disgust.setPixmap(
+            QtGui.QPixmap("imgs/Pensive face.png"))
         self.label_video_disgust.setScaledContents(True)
         self.label_video_disgust.setObjectName("label_video_disgust")
         self.label_video_emometer = QtWidgets.QLabel(self.contadores_vid)
         self.label_video_emometer.setGeometry(QtCore.QRect(200, -4, 391, 41))
         self.label_video_emometer.setScaledContents(True)
-        self.label_video_emometer.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_video_emometer.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_video_emometer.setWordWrap(False)
         self.label_video_emometer.setObjectName("label_video_emometer")
         self.tabWidget.addTab(self.video_tab, "")
@@ -399,14 +438,16 @@ class Ui_mainWindow(object):
         self.label_cam_happy = QtWidgets.QLabel(self.contadores)
         self.label_cam_happy.setGeometry(QtCore.QRect(50, 30, 50, 50))
         self.label_cam_happy.setText("")
-        self.label_cam_happy.setPixmap(QtGui.QPixmap("imgs/Smiling face with smiling eyes.png"))
+        self.label_cam_happy.setPixmap(QtGui.QPixmap(
+            "imgs/Smiling face with smiling eyes.png"))
         self.label_cam_happy.setScaledContents(True)
         self.label_cam_happy.setWordWrap(False)
         self.label_cam_happy.setObjectName("label_cam_happy")
         self.label_cam_surprise = QtWidgets.QLabel(self.contadores)
         self.label_cam_surprise.setGeometry(QtCore.QRect(250, 30, 50, 50))
         self.label_cam_surprise.setText("")
-        self.label_cam_surprise.setPixmap(QtGui.QPixmap("imgs/Astonished face.png"))
+        self.label_cam_surprise.setPixmap(
+            QtGui.QPixmap("imgs/Astonished face.png"))
         self.label_cam_surprise.setScaledContents(True)
         self.label_cam_surprise.setObjectName("label_cam_surprise")
         self.label_cam_sad = QtWidgets.QLabel(self.contadores)
@@ -428,7 +469,8 @@ class Ui_mainWindow(object):
         self.counter_fear.setLineWidth(1)
         self.counter_fear.setMidLineWidth(0)
         self.counter_fear.setSmallDecimalPoint(False)
-        self.counter_fear.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_fear.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_fear.setObjectName("counter_fear")
         self.counter_neutral = QtWidgets.QLCDNumber(self.contadores)
         self.counter_neutral.setGeometry(QtCore.QRect(450, 80, 64, 23))
@@ -437,12 +479,14 @@ class Ui_mainWindow(object):
         self.counter_neutral.setLineWidth(1)
         self.counter_neutral.setMidLineWidth(0)
         self.counter_neutral.setSmallDecimalPoint(False)
-        self.counter_neutral.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_neutral.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_neutral.setObjectName("counter_neutral")
         self.label_cam_neutral = QtWidgets.QLabel(self.contadores)
         self.label_cam_neutral.setGeometry(QtCore.QRect(460, 30, 50, 50))
         self.label_cam_neutral.setText("")
-        self.label_cam_neutral.setPixmap(QtGui.QPixmap("imgs/Neutral face.png"))
+        self.label_cam_neutral.setPixmap(
+            QtGui.QPixmap("imgs/Neutral face.png"))
         self.label_cam_neutral.setScaledContents(True)
         self.label_cam_neutral.setObjectName("label_cam_neutral")
         self.counter_surp = QtWidgets.QLCDNumber(self.contadores)
@@ -452,7 +496,8 @@ class Ui_mainWindow(object):
         self.counter_surp.setLineWidth(1)
         self.counter_surp.setMidLineWidth(0)
         self.counter_surp.setSmallDecimalPoint(False)
-        self.counter_surp.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_surp.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_surp.setObjectName("counter_surp")
         self.counter_happy = QtWidgets.QLCDNumber(self.contadores)
         self.counter_happy.setGeometry(QtCore.QRect(40, 80, 64, 23))
@@ -461,7 +506,8 @@ class Ui_mainWindow(object):
         self.counter_happy.setLineWidth(1)
         self.counter_happy.setMidLineWidth(0)
         self.counter_happy.setSmallDecimalPoint(False)
-        self.counter_happy.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_happy.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_happy.setObjectName("counter_happy")
         self.counter_sad = QtWidgets.QLCDNumber(self.contadores)
         self.counter_sad.setGeometry(QtCore.QRect(140, 80, 64, 23))
@@ -470,7 +516,8 @@ class Ui_mainWindow(object):
         self.counter_sad.setLineWidth(1)
         self.counter_sad.setMidLineWidth(0)
         self.counter_sad.setSmallDecimalPoint(False)
-        self.counter_sad.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_sad.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_sad.setObjectName("counter_sad")
         self.counter_disgust = QtWidgets.QLCDNumber(self.contadores)
         self.counter_disgust.setGeometry(QtCore.QRect(560, 80, 64, 23))
@@ -479,7 +526,8 @@ class Ui_mainWindow(object):
         self.counter_disgust.setLineWidth(1)
         self.counter_disgust.setMidLineWidth(0)
         self.counter_disgust.setSmallDecimalPoint(False)
-        self.counter_disgust.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_disgust.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_disgust.setObjectName("counter_disgust")
         self.counter_anger = QtWidgets.QLCDNumber(self.contadores)
         self.counter_anger.setGeometry(QtCore.QRect(670, 80, 64, 23))
@@ -489,7 +537,8 @@ class Ui_mainWindow(object):
         self.counter_anger.setMidLineWidth(0)
         self.counter_anger.setSmallDecimalPoint(False)
         self.counter_anger.setMode(QtWidgets.QLCDNumber.Mode.Dec)
-        self.counter_anger.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.counter_anger.setSegmentStyle(
+            QtWidgets.QLCDNumber.SegmentStyle.Flat)
         self.counter_anger.setObjectName("counter_anger")
         self.label_cam_fear = QtWidgets.QLabel(self.contadores)
         self.label_cam_fear.setGeometry(QtCore.QRect(360, 30, 50, 50))
@@ -500,13 +549,15 @@ class Ui_mainWindow(object):
         self.label_cam_disgust = QtWidgets.QLabel(self.contadores)
         self.label_cam_disgust.setGeometry(QtCore.QRect(570, 30, 50, 50))
         self.label_cam_disgust.setText("")
-        self.label_cam_disgust.setPixmap(QtGui.QPixmap("imgs/Pensive face.png"))
+        self.label_cam_disgust.setPixmap(
+            QtGui.QPixmap("imgs/Pensive face.png"))
         self.label_cam_disgust.setScaledContents(True)
         self.label_cam_disgust.setObjectName("label_cam_disgust")
         self.label_cam_emometer = QtWidgets.QLabel(self.contadores)
         self.label_cam_emometer.setGeometry(QtCore.QRect(200, -4, 391, 41))
         self.label_cam_emometer.setScaledContents(True)
-        self.label_cam_emometer.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_cam_emometer.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_cam_emometer.setWordWrap(False)
         self.label_cam_emometer.setObjectName("label_cam_emometer")
         self.tabWidget.addTab(self.cam_tab, "")
@@ -553,7 +604,8 @@ class Ui_mainWindow(object):
         self.label_7 = QtWidgets.QLabel(self.acerca_de)
         self.label_7.setGeometry(QtCore.QRect(500, 450, 211, 31))
         self.label_7.setOpenExternalLinks(True)
-        self.label_7.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
+        self.label_7.setTextInteractionFlags(
+            QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
         self.label_7.setObjectName("label_7")
         self.label_8 = QtWidgets.QLabel(self.acerca_de)
         self.label_8.setGeometry(QtCore.QRect(550, 400, 111, 41))
@@ -573,27 +625,37 @@ class Ui_mainWindow(object):
         self.toolButton_image.setText(_translate("mainWindow", "..."))
         self.load_image_button.setText(_translate("mainWindow", "Load Image"))
         self.labelimage.setText(_translate("mainWindow", "Emotions Detected"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.images_tab), _translate("mainWindow", "Images"))
-        self.stop_screen_button.setText(_translate("mainWindow", "Parar captura"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(
+            self.images_tab), _translate("mainWindow", "Images"))
+        self.stop_screen_button.setText(
+            _translate("mainWindow", "Parar captura"))
         self.load_screen_button.setText(_translate("mainWindow", "Capturar"))
-        self.label_screen_emometer.setText(_translate("mainWindow", "EMO METER"))
-        self.labelscreen1.setText(_translate("mainWindow", "Emotions Detected"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.capture_tab), _translate("mainWindow", "Pantalla"))
+        self.label_screen_emometer.setText(
+            _translate("mainWindow", "EMO METER"))
+        self.labelscreen1.setText(_translate(
+            "mainWindow", "Emotions Detected"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(
+            self.capture_tab), _translate("mainWindow", "Pantalla"))
         self.load_video_button.setText(_translate("mainWindow", "Play Video"))
-        self.labelcaamvideo.setText(_translate("mainWindow", "Emotions Detected"))
+        self.labelcaamvideo.setText(_translate(
+            "mainWindow", "Emotions Detected"))
         self.toolButton.setText(_translate("mainWindow", "..."))
         self.stop_video_button.setText(_translate("mainWindow", "Stop Video"))
-        self.label_video_emometer.setText(_translate("mainWindow", "EMO METER"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.video_tab), _translate("mainWindow", "Video"))
+        self.label_video_emometer.setText(
+            _translate("mainWindow", "EMO METER"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(
+            self.video_tab), _translate("mainWindow", "Video"))
         self.load_cam_button.setText(_translate("mainWindow", "Load Camera"))
         self.labelcaam1.setText(_translate("mainWindow", "Emotions Detected"))
         self.stop_cam_button.setText(_translate("mainWindow", "Stop Camera"))
         self.label_cam_emometer.setText(_translate("mainWindow", "EMO METER"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.cam_tab), _translate("mainWindow", "Cam"))
-        urlLink1=" <a href=\"mailto:boni85@gmail.com\"> <font face=verdana size=2 color=black>boni85@gmail.com</font> </a>" 
+        self.tabWidget.setTabText(self.tabWidget.indexOf(
+            self.cam_tab), _translate("mainWindow", "Cam"))
+        urlLink1 = " <a href=\"mailto:boni85@gmail.com\"> <font face=verdana size=2 color=black>boni85@gmail.com</font> </a>"
         self.label_3.setText(_translate("mainWindow", urlLink1))
-        urlLink2=" <a href=\"https://github.com/oOBoniOo\"> <font face=verdana size=2 color=black>https://github.com/oOBoniOo</font> </a>" 
+        urlLink2 = " <a href=\"https://github.com/oOBoniOo\"> <font face=verdana size=2 color=black>https://github.com/oOBoniOo</font> </a>"
         self.label_4.setText(_translate("mainWindow", urlLink2))
-        urlLink3=" <a href=\"https://www.corecode.school\"> <font face=verdana size=2 color=black>https://www.corecode.school</font> </a>" 
+        urlLink3 = " <a href=\"https://www.corecode.school\"> <font face=verdana size=2 color=black>https://www.corecode.school</font> </a>"
         self.label_7.setText(_translate("mainWindow", urlLink3))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.acerca_de), _translate("mainWindow", "Acerca de..."))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(
+            self.acerca_de), _translate("mainWindow", "Acerca de..."))

@@ -7,7 +7,7 @@ face_cascade = cv2.CascadeClassifier(
     'assets/haarcascade_frontalface_default.xml')
 
 
-class Worker1(QThread):
+class Worker_Cam(QThread):
     ImageUpdate1 = pyqtSignal(QImage)
 
     def __init__(self, ocv_conf, welcome):

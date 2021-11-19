@@ -15,6 +15,7 @@ initial_model = load_model("modelos/complet_faces_best_model20211110.h5")
 
 
 def get_prediction(imagen):
+    """Return predictions of each image provided by main app."""
     try:
         imagen = cv2.resize(imagen, dim)
         print(imagen.shape)
