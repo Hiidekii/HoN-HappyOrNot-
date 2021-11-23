@@ -4,8 +4,7 @@
 
 > FER(Face Emotion Recognition) Machine learning project to detect people's emotions at a certain moment in different environments
 
-[![WebCam Capture](https://img.youtube.com/vi/jKjpwnIFuek/0.jpg)](https://youtu.be/jKjpwnIFuek)
-
+<a href='https://youtu.be/jKjpwnIFuek'><p align='center'><img src="https://img.youtube.com/vi/jKjpwnIFuek/0.jpg" alt= "Captura Web Cam"></p></a>
 
 # Requirements
 This libraries are needed:
