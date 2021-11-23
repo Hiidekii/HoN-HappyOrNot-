@@ -16,7 +16,6 @@ opencv_conf = {
     'lineType': 2
 }
 
-
 class HappyOrNot(QWidget, Ui_mainWindow):
     def __init__(self):
         super().__init__()
@@ -107,7 +106,6 @@ if __name__ == "__main__":
     # Necesitamos siempre una aplicación
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon('imgs/Hugging face.png'))
-    # Pueden haber diferentes widgets
     welcome = HappyOrNot()
     welcome.show()
 
