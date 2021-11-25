@@ -1,6 +1,6 @@
 # Happy or Not
 
-[![WebCam Capture](https://i0.wp.com/sonria.com/wp-content/uploads/2016/07/eeaa2.jpg?resize=700%2C224&ssl=1)](https://i0.wp.com/sonria.com/wp-content/uploads/2016/07/eeaa2.jpg?resize=700%2C224&ssl=1)
+<p align='center'><img src="https://i0.wp.com/sonria.com/wp-content/uploads/2016/07/eeaa2.jpg?resize=700%2C224&ssl=1" alt= "ini"></p>
 
 > FER(Face Emotion Recognition) Machine learning project to detect people's emotions at a certain moment in different environments
 
@@ -35,8 +35,9 @@ and start the program with:
         python main_gray.py
 
 # Contents   
-### clean&fit
+### clea_fit folder
 > In the clean & fit directory you will find all the algorithms and functions used to load, review, clean and transform the datasets.
+> Also you can find the last models used to make predictions.
 
 ##### Landmarks model
 > The first attempt was to fit a model and make predictions only with the landmarks of each photo.
