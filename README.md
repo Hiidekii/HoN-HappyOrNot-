@@ -39,6 +39,7 @@ and start the program with:
 > In the clean & fit directory you will find all the algorithms and functions used to load, review, clean and transform the datasets.
 > Also you can find the last models used to make predictions.
 
+
 ##### Landmarks model
 > The first attempt was to fit a model and make predictions only with the landmarks of each photo.
 
