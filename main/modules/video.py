@@ -4,8 +4,11 @@ from modules.predict import get_prediction
 import cv2
 import time
 from vidgear.gears import CamGear
-face_cascade = cv2.CascadeClassifier(
-    'assets/haarcascade_frontalface_default.xml')
+
+import os
+
+cascade_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier(cascade_path)
 
 
 class Worker_Video(QThread):
@@ -41,7 +44,7 @@ class Worker_Video(QThread):
                         careto["pred"] = get_prediction(gray[y:y+h, x:x+w])
                         self.faces_gray.append(careto)
                         self.welcome.emotions_video_reg.append(
-                            careto["pred"] + "  at  " + time.strftime("%X"))
+                            str(careto.get("pred", "No prediction")) + "  at  " + time.strftime("%X"))
                         print(careto["pred"])
                         print(self.welcome.counters_vid[careto["pred"]]['val'])
                         self.welcome.counters_vid[careto["pred"]]['val'] += 1

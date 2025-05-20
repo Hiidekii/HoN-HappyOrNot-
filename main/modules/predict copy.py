@@ -5,7 +5,9 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import cv2
 import os
-face_cascade = cv2.CascadeClassifier('assets/haarcascade_frontalface_default.xml')
+
+cascade_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier(cascade_path)
 
 HEIGHT, WIDTH = 48,48
 dim=(HEIGHT, WIDTH)

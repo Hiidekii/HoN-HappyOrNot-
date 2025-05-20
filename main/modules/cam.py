@@ -3,8 +3,10 @@ from PyQt6.QtGui import QImage
 from modules.predict import get_prediction
 import cv2
 import time
-face_cascade = cv2.CascadeClassifier(
-    'assets/haarcascade_frontalface_default.xml')
+import os
+
+cascade_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier(cascade_path)
 
 
 class Worker_Cam(QThread):

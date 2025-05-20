@@ -3,19 +3,21 @@ from tensorflow.keras.models import load_model
 import cv2
 from tensorflow.python.keras.saving.saved_model.load import load
 
-face_cascade = cv2.CascadeClassifier(
-    'assets/haarcascade_frontalface_default.xml')
+import os
 
-HEIGHT, WIDTH = 48, 48
+cascade_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier(cascade_path)
+
+HEIGHT, WIDTH = 64, 64
 dim = (HEIGHT, WIDTH)
 
 
-aux_model = load_model('modelos/no_dig_no_fear20211117_v1.h5')
-initial_model = load_model('modelos/complet_faces_best_model20211110.h5')
+aux_model = load_model('modelos/fer2013_model.hdf5')
+initial_model = load_model('modelos/fer2013_model.hdf5')
 all_emotions = ['anger', 'disgust', 'fear',
                     'happiness', 'neutral', 'sadness', 'surprise']
 
-def load_models(ini= 'modelos/complet_faces_best_model20211110.h5' ,other=''):
+def load_models(ini= 'modelos/fer2013_model.hdf5' ,other=''):
     initial_model = load_model(ini)
     if other:
         aux_model = load_model(other)
